@@ -1,0 +1,24 @@
+//create Controller Class
+
+class Controller {
+    private Model model;
+
+    public Controller(Model model) {
+        this.model = model;
+    }
+
+    public void runGame(int generations, int sleepTime) {
+        for (int i = 0; i < generations; i++) {
+            System.out.println("Generation " + (i + 1));
+            View.displayGrid(model.getCurrentGeneration());
+            model.updateNextGeneration();
+            model.updateCurrentGeneration();
+
+            try {
+                Thread.sleep(sleepTime);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
