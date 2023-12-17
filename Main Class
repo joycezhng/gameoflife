@@ -1,0 +1,28 @@
+//create Main class to run the game
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        int rows = getUserInput("How many rows would you like?: ");
+        int cols = getUserInput("How many columns would you like?: ");
+        int generations = getUserInput("How many generations would you like?: ");
+        int sleepTime = getUserInput("How many milliseconds of sleep time would you like? ");
+
+        Model model = new Model(rows, cols);
+        Controller controller = new Controller(model);
+
+        controller.runGame(generations, sleepTime);
+    }
+
+    private static int getUserInput(String message) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print(message);
+        while (!scanner.hasNextInt()) {
+            System.out.println("Please put in another number.");
+            System.out.print(message);
+            scanner.next();
+        }
+        return scanner.nextInt();
+    }
+}
