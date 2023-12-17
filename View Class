@@ -1,0 +1,13 @@
+//create View class
+
+class View {
+    public static void displayGrid(int[][] grid) {
+        for (int[] row : grid) {
+            for (int cell : row) {
+                System.out.print((cell == 1) ? "*" : " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+}
